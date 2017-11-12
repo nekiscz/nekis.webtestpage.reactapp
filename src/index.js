@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 
 import './css/index.css';
@@ -21,8 +21,10 @@ ReactDOM.render(
         <BrowserRouter>
             <div>
                 <Route component={Header} />
-                <Route path='/' component={App} />
-                <Route path='/new-test' component={NewTest} />
+                <Switch>
+                    <Route path='/new-test' component={NewTest} />
+                    <Route path='/' component={App} />
+                </Switch>
                 <Route component={Footer} />
             </div> 
         </BrowserRouter>

@@ -1,11 +1,11 @@
-import { RUN_TEST } from '../actions';
+import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 
-export default function(state = {}, action) {
-    switch (action.type) {
-        case RUN_TEST:
-            console.log(`${RUN_TEST} case`)
-            return action.payload;
-        default:
-            return state;
-    }
-}
+import  testReducer  from './reducer_test';
+
+const rootReducer = combineReducers({
+    test: testReducer,
+    form: formReducer
+});
+
+export default rootReducer;
