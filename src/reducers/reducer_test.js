@@ -1,4 +1,4 @@
-import { RUN_TEST } from '../actions';
+import { RUN_TEST } from '../actions/action_test';
 
 export default function(state = {}, action) {
     switch (action.type) {

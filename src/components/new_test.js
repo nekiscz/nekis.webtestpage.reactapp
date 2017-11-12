@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
 
-import { runTest } from '../actions';
+import { runTest } from '../actions/action_test';
 import textField from './text_field';
 
 class NewTest extends Component {
     onSubmit(values) {
-        console.log(values);
+        this.props.runTest(values);
     }
     
     render() {
@@ -43,7 +44,7 @@ function validate(values) {
     const errors = {};
 
     if (!values.url) {
-        errors.url = "Enter a url"
+        errors.url = "Enter a url to be tested"
     }
 
     return errors;
@@ -52,4 +53,4 @@ function validate(values) {
 export default reduxForm({
     validate,
     form: 'NewTestForm'
-})(NewTest);
+})(connect(null, { runTest })(NewTest));
