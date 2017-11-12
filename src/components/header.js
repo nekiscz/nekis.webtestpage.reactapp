@@ -4,11 +4,11 @@ class Header extends Component {
     render() {
         return (
         <div> 
-            <header class="header">
+            <header className="header">
                 <nav>
-                    <div class="nav-wrapper">
-                        <a href="/" class="brand-logo left">Logo</a>
-                        <ul class="right">
+                    <div className="nav-wrapper">
+                        <a href="/" className="brand-logo left">Logo</a>
+                        <ul className="right">
                             <li>
                                 <a href="/new-test">New test</a>
                             </li>
@@ -17,9 +17,10 @@ class Header extends Component {
                             </li>
                             <li>
                                 <a href="/settings">
-                                    <i class="material-icons">settings</i>
+                                    <i className="material-icons">settings</i>
                                 </a>
                             </li>
+                            <li><a className="waves-effect waves-light btn">Account<i className="left material-icons">account_circle</i></a></li>
                         </ul>
                     </div>
                 </nav>

@@ -22,7 +22,7 @@ ReactDOM.render(
             <div>
                 <Route component={Header} />
                 <Route path='/' component={App} />
-                {/* <Route path='/new-test' component={NewTest} /> */}
+                <Route path='/new-test' component={NewTest} />
                 <Route component={Footer} />
             </div> 
         </BrowserRouter>
