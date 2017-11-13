@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { checkTest } from '../actions/action_test';
+import StatusMessage from './running_test_status';
 
 class RunningTest extends Component {
     componentDidMount() {
         this.timerID = setInterval(
             () => this.checkForResult(),
-            2000
+            4000
         );
     }
 
@@ -16,7 +17,7 @@ class RunningTest extends Component {
     }
 
     checkForResult() {
-        if (this.props.runningTest) {  
+        if (this.props.runningTest) {
             this.props.checkTest(this.props.runningTest.id);
             if (this.props.runningTest.statusCode === 200) {
                 this.props.history.push(`/tests/detail/${this.props.runningTest.id}`);
@@ -24,37 +25,13 @@ class RunningTest extends Component {
         }
     }
 
-    getStatusText() {
-        if (this.props.runningTest) {  
-            if (this.props.runningTest.statusCode !== 0) {
-                return (
-                        <div>
-                            <div className='col s12'>
-                                <p>{this.props.runningTest.statusText}</p>
-                            </div>
-                        </div>
-                )
-            }
-        }
-
-        return (
-            <div className='col s12'>
-                <p>Your test is submitted and is preparing to queue.</p>
-            </div>         
-        )
-    }
-
     render() {
         return (
             <div className='runningTest'>
-                <div className='col s12'>
-                    <div className="progress">
-                        <div className="indeterminate"></div>
-                    </div>
+                <div className="progress">
+                    <div className="indeterminate"></div>
                 </div>
-                <div className='container'>
-                    {this.getStatusText()}
-                </div>
+                <StatusMessage />
             </div>
 
         );
@@ -62,8 +39,6 @@ class RunningTest extends Component {
 }
 
 function mapStateToProps({ test }) {
-    console.log(test.runningTest);
-    
     return {
         runningTest: test.runningTest
     };
