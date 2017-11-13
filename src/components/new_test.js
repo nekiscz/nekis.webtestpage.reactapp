@@ -7,7 +7,9 @@ import textField from './text_field';
 
 class NewTest extends Component {
     onSubmit(values) {
-        this.props.runTest(values);
+        this.props.runTest(values, () => {
+            this.props.history.push('/tests/running')
+        });
     }
     
     render() {

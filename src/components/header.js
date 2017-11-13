@@ -5,7 +5,7 @@ class Header extends Component {
     renderMenu (menuClass, menuId) {
         return (
         <ul className={menuClass} id={menuId}>
-            <li><Link to="/new-test">New test</Link> </li>
+            <li><Link to="/tests/new">New test</Link> </li>
             <li><Link to="/saved-tests">Saved tests</Link></li>
             <li><Link to="/settings"><i className="material-icons">settings</i></Link></li>
             <li><Link to='/acount' className="waves-effect waves-light btn">Account<i className="left material-icons">account_circle</i></Link></li>
