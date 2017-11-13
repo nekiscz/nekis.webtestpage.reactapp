@@ -7,17 +7,15 @@ export default function (state = {}, action) {
                 ...state,
                 runningTest: {
                     id: action.payload.data.data.testId,
-                    status: action.payload.data.statusCode
+                    statusCode: 0
                 }
             };
         case CHECK_TEST:
+            console.log(action.payload.data.data)
             return {
-                ...state,
-                runningTest: {
-                    id: action.payload.data.data.id,
-                    status: action.payload.data.statusCode
-                }
-            };
+                    ...state,
+                    runningTest: action.payload.data.data
+                };
         case FETCH_TEST:
             return { ...state, [action.payload.data.data.testId]: action.payload.data };
         default:

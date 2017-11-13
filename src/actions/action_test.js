@@ -26,7 +26,7 @@ export function fetchTest(testId) {
 }
 
 export function checkTest(testId) {
-    const request = axios.get(`${ROOT_URL}/jsonResult.php?test=${testId}`);
+    const request = axios.get(`${ROOT_URL}/testStatus.php?f=json&test=${testId}`);
 
     return {
         type: CHECK_TEST,
