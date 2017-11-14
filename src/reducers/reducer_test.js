@@ -1,4 +1,4 @@
-import { RUN_TEST, FETCH_TEST, CHECK_TEST } from '../actions/action_test';
+import { RUN_TEST, FETCH_TEST, CHECK_TEST, CANCEL_TEST } from '../actions/action_test';
 
 export default function (state = {}, action) {
     switch (action.type) {
@@ -11,11 +11,15 @@ export default function (state = {}, action) {
                 }
             };
         case CHECK_TEST:
-            console.log(action.payload.data.data)
             return {
-                    ...state,
-                    runningTest: action.payload.data.data
-                };
+                ...state,
+                runningTest: action.payload.data.data
+            };
+        case CANCEL_TEST:
+            return {
+                ...state,
+                runningTest: {}
+            }
         case FETCH_TEST:
             return { ...state, [action.payload.data.data.testId]: action.payload.data };
         default:

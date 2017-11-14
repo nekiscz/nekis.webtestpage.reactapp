@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { checkTest } from '../actions/action_test';
 import StatusMessage from './running_test_status';
+import CancelTest from './running_test_cancel';
 
 class RunningTest extends Component {
     componentDidMount() {
@@ -32,6 +33,7 @@ class RunningTest extends Component {
                     <div className="indeterminate"></div>
                 </div>
                 <StatusMessage />
+                <CancelTest />
             </div>
 
         );
