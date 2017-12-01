@@ -1,33 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import RunningTestData from './running_test_data';
+
 class StatusMessage extends Component {
     render() {
         if (this.props.runningTest) {
             if (this.props.runningTest.statusCode !== 0) {
-                return (
-                    <div className='container'>
-                        <div className='row'>
-                            <div className='col s12'>
-                                <p className='accent'>{this.props.runningTest.statusText}</p>
-                                <h2>Test data</h2>
-                                <code>Test ID: {this.props.runningTest.testId}</code>
-                            </div>
-                            <div className='col s12 m6'>
-                                <code>Website: {this.props.runningTest.testInfo.url}</code>
-                            </div>
-                            <div className='col s12 m6'>
-                                <code>Browser: {this.props.runningTest.testInfo.browser}</code>
-                            </div>
-                            <div className='col s12 m6'>
-                                <code>Location: {this.props.runningTest.testInfo.location}</code>
-                            </div>
-                            <div className='col s12 m6'>
-                                <code>Connectivity: {this.props.runningTest.testInfo.connectivity}</code>
-                            </div>
-                        </div>
-                    </div>
-                )
+                return <RunningTestData runningTest={this.props.runningTest} />
             }
         }
 
