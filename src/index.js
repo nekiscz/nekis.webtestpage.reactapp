@@ -25,8 +25,8 @@ ReactDOM.render(
             <div>
                 <Route component={Header} />
                 <Switch>
-                <Route path='/tests/running' component={RunningTest} />
                 <Route path='/tests/running/:id' component={TestDetail} />
+                <Route path='/tests/running' component={RunningTest} />
                 <Route path='/tests/new' component={NewTest} />
                 <Route path='/tests/:id' component={TestDetail} />
                     <Route path='/' component={App} />

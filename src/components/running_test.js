@@ -21,7 +21,7 @@ class RunningTest extends Component {
         if (this.props.runningTest) {
             this.props.checkTest(this.props.runningTest.id);
             if (this.props.runningTest.statusCode === 200) {
-                this.props.history.push(`/tests/detail/${this.props.runningTest.id}`);
+                this.props.history.push(`/tests/running/${this.props.runningTest.id}`);
             }
         }
     }

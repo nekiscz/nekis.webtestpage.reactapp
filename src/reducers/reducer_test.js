@@ -21,7 +21,7 @@ export default function (state = {}, action) {
                 runningTest: {}
             }
         case FETCH_TEST:
-            return { ...state, [action.payload.data.data.testId]: action.payload.data };
+            return { ...state, runningTest: action.payload.data.data };
         default:
             return state;
     }
